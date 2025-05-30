@@ -1,0 +1,21 @@
+[project]
+name = "the-llamanator"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "llama-index-core>=0.12.35",
+    "llama-index-embeddings-huggingface>=0.5.4",
+    "llama-index-llms-ollama>=0.5.4",
+    "llama-index-tools-jira>=0.1.0",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.26.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+asyncio_default_fixture_loop_scope = "function"
+filterwarnings = [
+    "ignore:.*:DeprecationWarning",
+]

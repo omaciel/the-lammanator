@@ -1,0 +1,12 @@
+(the-llamanator) betelgeuse :: ~/hacking/The-Llamanator » uv run pytest -k test_problem4
+================================================================= test session starts =================================================================
+platform darwin -- Python 3.12.5, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/omaciel/hacking/The-Llamanator
+configfile: pyproject.toml
+plugins: anyio-4.9.0, asyncio-0.26.0
+asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collected 11 items / 10 deselected / 1 selected                                                                                                       
+
+tests/test_problem4.py .                                                                                                                        [100%]
+
+========================================================== 1 passed, 10 deselected in 7.64s ===========================================================
