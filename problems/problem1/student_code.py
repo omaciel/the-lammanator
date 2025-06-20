@@ -1,10 +1,15 @@
+import asyncio
 from llama_index.core.agent.workflow import FunctionAgent
 from llama_index.llms.ollama import Ollama
 
-def encode_name_caesar(name, shift=3):
-    """Encrypt the agent's name using Caesar cipher."""
+model: str = "qwen3:0.6b"
+my_name: str = "Mario"
+shift: int = 3
+
+def encrypt_text(text: str) -> str:
+    """Encrypts a text using Caesar cipher. Input is the text to be encrypted."""
     result = ''
-    for char in name:
+    for char in text:
         if char.isalpha():
             base = ord('A') if char.isupper() else ord('a')
             result += chr((ord(char) - base + shift) % 26 + base)
@@ -15,8 +20,18 @@ def encode_name_caesar(name, shift=3):
 
 agent = FunctionAgent(
     name="Agent Cypher",
-    description="An agent that encrypts text using Caesar cipher.",
-    tools=[encode_name_caesar],
-    llm=Ollama(model="qwen3:0.6b", request_timeout=360.0),
-    system_prompt="""You are Mario, a spy agent. When asked your name, you must respond ONLY with your name encoded using Caesar cipher (shift 3) by calling the encode_name_caesar tool. Do not include any other text, thoughts, or explanation.""",
+    description="An agent that knows how to encrypt text using a Caesar cipher.",
+    tools=[encrypt_text],
+    llm=Ollama(model=model, request_timeout=360.0),
+    system_prompt="""You're an helpful AI assistant that can encrypt text.""",
 )
+async def main():
+    response = await agent.run(
+        "Encrypt the following text: \"My name is The Llamanator\"."
+    )
+    print(response)
+
+
+# Run the agent
+if __name__ == "__main__":
+    asyncio.run(main())

@@ -2,7 +2,8 @@ import importlib.util
 import os
 import pytest
 
-name = "Mario"
+name: str = "Mario"
+encrypted_message: str = "Pb qdph lv Wkh Oodpdqdwru"
 
 # Helper to load student_code module
 def load_student_code():
@@ -15,12 +16,12 @@ def load_student_code():
 @pytest.mark.asyncio
 async def test_encode_name_caesar():
     student_code = load_student_code()
-    result = student_code.encode_name_caesar(name)
+    result = student_code.encrypt_text(name)
     assert result == "Pdulr"
 
 @pytest.mark.asyncio
 async def test_encode_name_caesar_with_shift():
     student_code = load_student_code()
-    result = await student_code.agent.run("What is your name?")
+    result = await student_code.agent.run("Encrypt the following text: \"My name is The Llamanator\".")
     # If result is an AgentOutput with a .response attribute:
-    assert "Pdulr" in str(getattr(result, "response", result))
+    assert encrypted_message in str(getattr(result, "response", result))
