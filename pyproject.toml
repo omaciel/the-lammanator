@@ -1,7 +1,7 @@
 [project]
 name = "the-llamanator"
 version = "0.1.0"
-description = "Add your description here"
+description = "A humorous AI agent training workshop for mastering local AI agents with Ollama and LLMs"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
