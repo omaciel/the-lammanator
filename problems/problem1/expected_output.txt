@@ -5,8 +5,8 @@ rootdir: /Users/omaciel/hacking/The-Llamanator
 configfile: pyproject.toml
 plugins: anyio-4.9.0, asyncio-0.26.0
 asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
-collected 11 items / 9 deselected / 2 selected                                                                             
+collected 5 items / 3 deselected / 2 selected                                                                             
 
 tests/test_problem1.py ..                                                                                            [100%]
 
-============================================= 2 passed, 9 deselected in 4.32s ==============================================
+============================================= 2 passed, 3 deselected in 4.32s ==============================================
