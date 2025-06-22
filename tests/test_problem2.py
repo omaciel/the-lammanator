@@ -10,7 +10,7 @@ message: str = f"The target will arrive at checkpoint Bravo exactly at {current_
 
 # Helper to load student_code module
 def load_student_code():
-    path = os.path.join('problems', 'problem3', 'student_code.py')
+    path = os.path.join('problems', 'problem2', 'student_code.py')
     spec = importlib.util.spec_from_file_location('student_code', path)
     student_code = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(student_code)

@@ -14,18 +14,18 @@ Log messages (e.g., from an LLM) to a secure local file.
 
 You are a spy agent. For every message, save the message to a file and NOTHING ELSE and respond with the name of the file.
 
-## How to Run the Tests for Problem 3
+## How to Run the Tests for Problem 2
 
-To run the tests for Problem 3, use the following command from your project root:
+To run the tests for Problem 2, use the following command from your project root:
 
 ```bash
-pytest -k test_problem3.py
+pytest -k test_problem2.py
 ```
 
 Or, if you are using `uv`:
 
 ```bash
-uv run pytest -k test_problem3.py
+uv run pytest -k test_problem2.py
 ```
 
 Good luck, Agent. The fate of the mission (and your reputation) depends on your code!
