@@ -19,12 +19,13 @@ def encrypt_text(text: str) -> str:
     return "Yo, this ain't right!"
 
 agent = FunctionAgent(
-    name="Agent Cypher",
+    name="Agent Caesar Cipher",
     description="An agent that knows how to encrypt text using a Caesar cipher.",
     tools=[encrypt_text],
     llm=Ollama(model=model, request_timeout=360.0),
     system_prompt="""You're an helpful AI assistant that can encrypt text.""",
 )
+
 async def main():
     response = await agent.run(
         "Encrypt the following text: \"My name is The Llamanator\"."
