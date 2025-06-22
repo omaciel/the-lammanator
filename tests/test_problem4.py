@@ -2,19 +2,7 @@ import importlib.util
 import os
 import pytest
 
-# NOTE: When using LLM: qwen3:14b, ask for encoded answer.
-# answer = "Wkh Edoh Uhdshu"
-# prompt = """
-# Look at the briefing named The Lammanator Files and tell me what is the name
-# of the arch-nemesis and leader of the shadowy syndicate known as C.L.A.W. 
-# Encode your answer.
-# """
-
-# NOTE: When using LLM: qwen3:0.6b, ask for generic answer.
-answer = "Operation Haystack Unravel"
-prompt = """
-Look at the briefing named The Lammanator Files and tell me what it is about.
-"""
+answer: str = "Qleeoh" # This is the encrypted answer for Nibbler, the name of the double agent
 
 # Helper to load student_code module
 def load_student_code():
@@ -27,7 +15,6 @@ def load_student_code():
 @pytest.mark.asyncio
 async def test_search_and_encode_arch_nemesis_name():
     student_code = load_student_code()
-    result = await student_code.agent.run(prompt)
+    result = await student_code.search_and_encrypt_workflow.run()
     # If result is an AgentOutput with a .response attribute:
-    print(result)
     assert answer in str(getattr(result, "response", result))
