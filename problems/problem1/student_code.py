@@ -16,7 +16,7 @@ def encrypt_text(text: str) -> str:
         else:
             result += char
     # FIXME: make sure this function returns the expected output.
-    return "Yo, this ain't right!"
+    return result
 
 agent = FunctionAgent(
     name="Agent Caesar Cipher",

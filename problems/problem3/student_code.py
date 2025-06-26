@@ -32,20 +32,20 @@ class SearchResult(Event):
 class SearchAgentWorkflow(Workflow):
     """
     Workflow for searching documents and encrypting results.
-    
+
     This workflow implements a two-step process:
     1. Search through briefing documents
     2. Encrypt the answer using Caesar cipher
     """
-    
+
     @step
     async def search_documents_step(self, ev: StartEvent) -> SearchResult:
         """
         Step 1: Search through secret briefing documents.
-        
+
         Args:
             ev: StartEvent containing the query to search for
-            
+
         Returns:
             SearchResult: Event containing the search result
         """
@@ -57,16 +57,16 @@ class SearchAgentWorkflow(Workflow):
     async def encrypt_answer_step(self, ev: SearchResult) -> StopEvent:
         """
         Step 2: Encrypt the search result using Caesar cipher.
-        
+
         Args:
             ev: SearchResult event containing the name to encrypt
-            
+
         Returns:
             StopEvent: Final event with encrypted result
         """
         answer = ev.result
         encrypted = ''
-        
+
         # Apply Caesar cipher with the configured shift value
         for char in answer:
             if char.isalpha():
@@ -74,9 +74,9 @@ class SearchAgentWorkflow(Workflow):
                 encrypted += chr((ord(char) - base + shift) % 26 + base)
             else:
                 encrypted += char
-                
+
         # FIXME: make sure this function returns the expected output.
-        return StopEvent(result="Yo, this ain't right!")
+        return StopEvent(result=encrypted)
 
 
 # Workflow Initialization
@@ -86,7 +86,7 @@ search_and_encrypt_workflow = SearchAgentWorkflow()
 async def main():
     """
     Main function to execute the search and encrypt workflow.
-    
+
     Runs the workflow with a custom query and prints the encrypted result.
     """
     query = "What is the name of the double agent?"
