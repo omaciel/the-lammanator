@@ -75,8 +75,7 @@ class SearchAgentWorkflow(Workflow):
             else:
                 encrypted += char
                 
-        # FIXME: make sure this function returns the expected output.
-        return StopEvent(result="Yo, this ain't right!")
+        return StopEvent(result=encrypted)
 
 
 # Workflow Initialization
