@@ -75,12 +75,11 @@ class SearchAgentWorkflow(Workflow):
             else:
                 encrypted += char
                 
-        # FIXME: make sure this function returns the expected output.
-        return StopEvent(result="Yo, this ain't right!")
+        return StopEvent(result=str(encrypted))
 
 
 # Workflow Initialization
-search_and_encrypt_workflow = SearchAgentWorkflow()
+search_and_encrypt_workflow = SearchAgentWorkflow(timeout=30.0)
 
 
 async def main():
