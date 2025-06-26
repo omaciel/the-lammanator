@@ -15,8 +15,7 @@ def encrypt_text(text: str) -> str:
             result += chr((ord(char) - base + shift) % 26 + base)
         else:
             result += char
-    # FIXME: make sure this function returns the expected output.
-    return "Yo, this ain't right!"
+    return result
 
 agent = FunctionAgent(
     name="Agent Caesar Cipher",

@@ -8,8 +8,7 @@ model: str = "qwen3:0.6b"
 
 def log_message_to_file(message: str, filename: str = "drop.txt") -> str:
     """Log a message from the LLM to a secure drop file."""
-    # FIXME: make sure this function returns the expected output.
-    message = "Yo, this ain't right!"
+    
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open(filename, "a") as f:
         f.write(f"[{timestamp}] {message}\n")
